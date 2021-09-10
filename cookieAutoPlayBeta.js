@@ -123,7 +123,7 @@ AutoPlay.runJustRight = function() {
       if ((me.getPrice()<Game.cookies) &&
           (me.amount<10+Game.ObjectsById[i+1].amount)) { me.buy(1); return; }
     }
-    Game.UpgradesById.forEach(function(e) {
+    for (var e in Game.UpgradesById){
       if (e.unlocked && !e.bought && e.canBuy() && e.pool!="toggle" &&
           notBuy.indexOf(e.id)<0) { e.buy(true); } });
   } else {
@@ -495,7 +495,7 @@ AutoPlay.bestBuy = function() {
 //===================== Handle Upgrades ==========================
 AutoPlay.handleUpgrades = function() {
   if (!Game.Achievements["Hardcore"].won && Game.UpgradesOwned==0) return;
-  Game.UpgradesById.forEach(function(e) {
+  for (var e in Game.UpgradesById){
     if (e.unlocked && !e.bought && !AutoPlay.avoidbuy(e))
       AutoPlay.buyUpgrade(e, true);  // checks price, bypass = true
   });
@@ -1813,7 +1813,7 @@ AutoPlay.buyHeavenlyUpgrades = function() {
 	  AutoPlay.lastPrestige=0;
     }
   }
-  Game.UpgradesById.forEach(function(e) {
+  for (var e in Game.UpgradesById){
     if (e.canBePurchased && !e.bought && e.buy(true)) {
       AutoPlay.info("buying "+e.name);
     }
