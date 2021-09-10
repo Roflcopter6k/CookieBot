@@ -125,7 +125,7 @@ AutoPlay.runJustRight = function() {
     }
     for (var e in Game.UpgradesById){
       if (e.unlocked && !e.bought && e.canBuy() && e.pool!="toggle" &&
-          notBuy.indexOf(e.id)<0) { e.buy(true); } });
+          notBuy.indexOf(e.id)<0) { e.buy(true); } };
   } else {
     var cookieDiff = goal-Game.cookies;
     if (Game.BuildingsOwned==0) { // almost there
